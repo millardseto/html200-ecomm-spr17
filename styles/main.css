@@ -46,6 +46,9 @@ h1 .logo-w {
   font-size: 3.5rem;
 }
 
+.logo-text {
+  color: rgb(76,	126, 201); /* light blue */
+}
 /**************** ASIDE ****************/
 
 input[type="submit"] {
