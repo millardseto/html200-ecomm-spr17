@@ -105,3 +105,8 @@ h3 {
   margin: 2rem;
   display: inline-block;
 }
+
+
+.product-description{
+  display: none;
+}
