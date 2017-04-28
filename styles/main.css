@@ -67,6 +67,14 @@ input[type="submit"] {
   color: white;
 }
 
+.block {
+  display: block;
+}
+
+.input-aside {
+  width: 100%;
+  margin-bottom: .5rem;
+}
 
 /*********** PRODUCTS SECTION ***********/
 
