@@ -60,12 +60,13 @@ h1 .logo-w {
 
 input[type="submit"] {
   padding: .25rem;
-  background-color: #3D7FCF;
+  background-color: #3D7FCF; /* todo:  determine how to override bootstrap colors */
   border: 1px solid #3D7FCF;
   border-radius: 5px;
-  font-size: .75rem;
+  /* font-size: .75rem; */
   color: white;
 }
+
 
 /*********** PRODUCTS SECTION ***********/
 
