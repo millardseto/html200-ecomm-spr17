@@ -20,6 +20,10 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav ul {
+  display: flex;
+}
+
 /**************** HERO *****************/
 
 header img {
