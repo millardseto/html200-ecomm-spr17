@@ -37,9 +37,9 @@ nav ul a {
 }
 
 /**************** HERO *****************/
-
 header img {
   max-height: 6rem;
+  padding-left: 1rem;
 }
 
 h1 .logo-w {
@@ -49,6 +49,7 @@ h1 .logo-w {
 .logo-text {
   color: rgb(76,	126, 201); /* light blue */
 }
+
 /**************** ASIDE ****************/
 
 input[type="submit"] {
