@@ -21,7 +21,15 @@ nav a:hover {
 }
 
 nav ul {
-  display: flex;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: rgb(76,	126, 201); /* light blue */
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+nav ul a {
+  color: white;
 }
 
 /**************** HERO *****************/
