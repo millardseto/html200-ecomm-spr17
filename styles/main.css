@@ -38,8 +38,10 @@ nav ul a {
 
 /**************** HERO *****************/
 header img {
-  max-height: 6rem;
+  max-height: 14rem;
   padding-left: 1rem;
+  padding-right: 1rem;
+  float: left;
 }
 
 h1 .logo-w {
@@ -48,6 +50,10 @@ h1 .logo-w {
 
 .logo-text {
   color: rgb(76,	126, 201); /* light blue */
+}
+
+.line-break {
+  display: table;
 }
 
 /**************** ASIDE ****************/
