@@ -76,6 +76,9 @@ input[type="submit"] {
   margin-bottom: .5rem;
 }
 
+.mailing-list {
+  margin-bottom: 1rem;
+}
 /*********** PRODUCTS SECTION ***********/
 main {
   margin-left: 2rem;
