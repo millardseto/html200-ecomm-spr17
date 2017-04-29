@@ -26,8 +26,10 @@ nav a:hover {
 nav ul {
   text-align: center;
   font-size: 1.5em;
-  background-color: rgb(76, 126, 201);
+
   /* light blue */
+  background-color: rgb(76, 126, 201);
+
   padding-top: .5em;
   padding-bottom: .5em;
 }
@@ -85,7 +87,9 @@ input[type="submit"] {
   margin-bottom: .5rem;
 }
 
-/* margin needed in wide screen so mailing list aligns with products.
+/**************** MEDIA QUERIES ****************/
+/* if width > 60rem,
+margin needed in wide screen so mailing list aligns with products.
 On smaller screen, mailing list is at top of ui and does not need the
 extra spacing. */
 @media only screen and (min-width: 60rem) {
@@ -94,6 +98,23 @@ extra spacing. */
   }
 }
 
+/* if width < 60rem
+handle small screen reflow, add borders, move cart to top  */
+@media only screen and (max-width: 60rem) {
+  /* add borders to separate menu items */
+  nav li {
+    /* lighter blue */
+    border-bottom: 1px solid rgb(215,	227,	242);
+  }
+
+  /* remove extra border */
+  nav ul {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* todo:  move cart to top */
+}
 
 /*********** PRODUCTS SECTION ***********/
 
