@@ -9,10 +9,13 @@ p {
   color: #2d2d2d;
 }
 
+
 /* TODO: size images manually so this is not necessary */
+
 img {
   max-height: 20rem;
 }
+
 
 /***************** NAV *****************/
 
@@ -23,7 +26,8 @@ nav a:hover {
 nav ul {
   text-align: center;
   font-size: 1.5em;
-  background-color: rgb(76,	126, 201); /* light blue */
+  background-color: rgb(76, 126, 201);
+  /* light blue */
   padding-top: .5em;
   padding-bottom: .5em;
 }
@@ -36,7 +40,9 @@ nav ul a {
   color: white;
 }
 
+
 /**************** HERO *****************/
+
 header img {
   max-height: 14rem;
   padding-left: 1rem;
@@ -49,18 +55,21 @@ h1 .logo-w {
 }
 
 .logo-text {
-  color: rgb(76,	126, 201); /* light blue */
+  color: rgb(76, 126, 201);
+  /* light blue */
 }
 
 .line-break {
   display: table;
 }
 
+
 /**************** ASIDE ****************/
 
 input[type="submit"] {
   padding: .25rem;
-  background-color: #3D7FCF; /* todo:  determine how to override bootstrap colors */
+  background-color: #3D7FCF;
+  /* todo:  determine how to override bootstrap colors */
   border: 1px solid #3D7FCF;
   border-radius: 5px;
   /* font-size: .75rem; */
@@ -76,10 +85,18 @@ input[type="submit"] {
   margin-bottom: .5rem;
 }
 
-.mailing-list {
-  margin-bottom: 1rem;
+/* margin needed in wide screen so mailing list aligns with products.
+On smaller screen, mailing list is at top of ui and does not need the
+extra spacing. */
+@media only screen and (min-width: 60rem) {
+  .mailing-list {
+    margin-top: 7rem;
+  }
 }
+
+
 /*********** PRODUCTS SECTION ***********/
+
 main {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -111,7 +128,6 @@ h3 {
   display: inline-block;
 }
 
-
-.product-description{
+.product-description {
   display: none;
 }
