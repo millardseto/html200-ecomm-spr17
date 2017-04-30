@@ -1,0 +1,4 @@
+/* override some of the bootstrap theme colors so the control colors match the site colors. */
+.btn-primary {
+  background-image: none;
+}
