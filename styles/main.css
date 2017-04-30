@@ -45,6 +45,9 @@ nav .menuItem a {
   color: white;
 }
 
+.badge {
+  margin-left: .5rem;
+}
 
 /**************** HERO *****************/
 
@@ -160,6 +163,7 @@ h3 {
 .product-description {
   /* display: none; */
 }
+
 
 /* styles for '...' */
 .block-with-text {
