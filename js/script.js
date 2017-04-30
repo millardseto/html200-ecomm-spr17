@@ -7,6 +7,14 @@ $(function() {
     event.preventDefault();
   });
 
+  $(".product").hover(
+    function(){
+      $(this).append($("<i class='fa fa-cart-plus' aria-hidden='true'></i>"));
+    },
+    function(){
+      $(this).find("i:last").remove();
+    });
+
 
   var products = [{
       "name": "Reversible Plaid",
