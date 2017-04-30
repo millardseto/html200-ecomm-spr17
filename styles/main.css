@@ -23,7 +23,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-nav ul {
+nav .row {
   text-align: center;
   font-size: 1.5em;
 
@@ -34,7 +34,7 @@ nav ul {
   padding-bottom: .5em;
 }
 
-nav ul a {
+nav .menuItem a {
   color: white;
 }
 
@@ -102,13 +102,13 @@ extra spacing. */
 handle small screen reflow, add borders, move cart to top  */
 @media only screen and (max-width: 60rem) {
   /* add borders to separate menu items */
-  nav li {
+  nav .menuItem {
     /* lighter blue */
     border-bottom: 1px solid rgb(215,	227,	242);
   }
 
   /* remove extra border */
-  nav ul {
+  nav .row {
     padding-top: 0;
     padding-bottom: 0;
   }
