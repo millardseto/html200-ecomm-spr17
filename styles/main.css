@@ -55,6 +55,11 @@ header img {
   float: left;
 }
 
+header h1 {
+  padding-top: 2rem;
+  font-family: 'Anton', sans-serif;
+}
+
 h1 .logo-w {
   font-size: 5.6rem;
 }
