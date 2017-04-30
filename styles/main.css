@@ -18,6 +18,9 @@ img {
 
 
 /***************** NAV *****************/
+nav {
+  margin-bottom: 1rem;
+}
 
 nav a:hover {
   text-decoration: underline;
