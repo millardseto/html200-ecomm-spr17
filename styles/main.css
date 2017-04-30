@@ -100,7 +100,7 @@ input[type="submit"] {
 margin needed in wide screen so mailing list aligns with products.
 On smaller screen, mailing list is at top of ui and does not need the
 extra spacing. */
-@media only screen and (min-width: 60rem) {
+@media only screen and (min-width: 61.825rem) {
   .mailing-list {
     margin-top: 7rem;
   }
@@ -108,7 +108,7 @@ extra spacing. */
 
 /* if width < 60rem
 handle small screen reflow, add borders, move cart to top  */
-@media only screen and (max-width: 60rem) {
+@media only screen and (max-width: 61.825rem) {
   /* add borders to separate menu items */
   nav .menuItem {
     /* lighter blue */
