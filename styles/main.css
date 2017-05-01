@@ -111,7 +111,7 @@ extra spacing. */
 
 /* if width < 60rem
 handle small screen reflow, add borders, move cart to top  */
-@media only screen and (max-width: 61.825rem) {
+@media only screen and (max-width: 61.9375rem) {
   /* add borders to separate menu items */
   nav .menuItem {
     /* lighter blue */
