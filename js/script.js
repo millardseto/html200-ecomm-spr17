@@ -3,7 +3,9 @@ $(function() {
 
   $( "#mail-form" ).submit(function( event ) {
     var email = $("#email").val();
-    console.log("Thanks for signing up for our mailing list, %s!", email);
+    var message = "Thanks for signing up for our mailing list, " + email;
+    console.log(message);
+    $("#aside-message").text(message);
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
@@ -13,7 +15,13 @@ $(function() {
     function(){
       $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
       $(this).find(".buy").click(function(){
+
         /* add to cart */
+        /*
+        var name = $(this).find("h3:first").text();
+        alert(name);
+        */
+
       })
     },
     function(){
