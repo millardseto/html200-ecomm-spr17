@@ -1,5 +1,5 @@
 $(function() {
-  var cart;
+  var cart = []; /* global cart */
 
   $( "#mail-form" ).submit(function( event ) {
     var email = $("#email").val();
@@ -12,16 +12,18 @@ $(function() {
   });
 
   $(".product").hover(
-    function(){
+    function(e){
       $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
       $(this).find(".buy").click(function(){
 
         /* add to cart */
-        /*
-        var name = $(this).find("h3:first").text();
-        alert(name);
-        */
+        var prodName = $(this.parentElement).find("h3").text();
+        var prodPrice = $(this.parentElement).find(".price").text();
+        cart.push({name:prodName, price:prodPrice});
 
+        /* show count in badge */
+        var badge = $("header").find('.badge');
+        badge.text(cart.length);
       })
     },
     function(){
