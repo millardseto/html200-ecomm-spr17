@@ -11,6 +11,27 @@ $(function() {
     event.preventDefault();
   });
 
+  $(".fa-shopping-cart").click(function(){
+    /* delete all existing rows - keep header */
+    $("#cartTable tr").not(".headerRow").remove();
+
+    /* locate table */
+    var cartTable = document.getElementById("cartTable");
+
+    /* generate grid rows for each cart item */
+    for(var i in cart) {
+
+      var row = cartTable.insertRow(1);
+
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = cart[i].name;
+      cell2.innerHTML = cart[i].price;
+    }
+
+    /* show the dialog - this is wired directly on the cart icon */
+  });
+
   $(".product").hover(
     function(e){
       $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
