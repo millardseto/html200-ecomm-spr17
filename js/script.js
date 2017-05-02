@@ -1,7 +1,16 @@
 $(function() {
+  /* per standards - keep variable and function declarations at top */
+
   var cart = []; /* global cart */
 
-  $( "#mail-form" ).submit(function( event ) {
+  /**
+   * subcribeToEmail - Get email address from user.   Simulates subscription buy
+   * showing message in log and directly in UI.
+   *
+   * @event  {type} standard click event
+   * @return {type} none
+   */
+  function subcribeToEmail( event ) {
     var email = $("#email").val();
     var message = "Thanks for signing up for our mailing list, " + email;
     console.log(message);
@@ -9,8 +18,15 @@ $(function() {
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
-  });
+  }
 
+
+
+  $( "#mail-form" ).submit(subcribeToEmail);
+
+
+
+  /* Adds item to cart */
   $(".fa-shopping-cart").click(function(){
     /* delete all existing rows - keep header */
     $("#cartTable tr").not(".headerRow").remove();
