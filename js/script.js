@@ -1,4 +1,6 @@
 $(function() {
+  var cart;
+
   $( "#mail-form" ).submit(function( event ) {
     var email = $("#email").val();
     console.log("Thanks for signing up for our mailing list, %s!", email);
@@ -9,10 +11,13 @@ $(function() {
 
   $(".product").hover(
     function(){
-      $(this).append($("<i class='fa fa-cart-plus' aria-hidden='true'></i>"));
+      $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
+      $(this).find(".buy").click(function(){
+        /* add to cart */
+      })
     },
     function(){
-      $(this).find("i:last").remove();
+      $(this).find(".buy").remove();
     });
 
 
