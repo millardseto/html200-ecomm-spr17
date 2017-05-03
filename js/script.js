@@ -12,7 +12,7 @@ $(function() {
    * @event  {type} standard click event
    * @return {type} undefined
    */
-  function subcribeToEmail( event ) {
+  function subcribeToEmail(event) {
     var email = $("#email").val();
     var message = "";
     if (email) {
@@ -35,7 +35,7 @@ $(function() {
    *
    * @return {type}  undefined
    */
-  function buildCartDialog(){
+  function buildCartDialog() {
     /* delete all existing rows - keep header */
     $("#cartTable tr").not(".headerRow").remove();
 
@@ -43,7 +43,7 @@ $(function() {
     var cartTable = document.getElementById("cartTable");
 
     /* generate grid rows for each cart item */
-    for(var i in cart) {
+    for (var i in cart) {
 
       var row = cartTable.insertRow(1);
 
@@ -58,7 +58,7 @@ $(function() {
       // create button and append to cell
       var removeButton = document.createElement("button");
       removeButton.innerHTML = "&times;";
-      removeButton.addEventListener("click", function(e){
+      removeButton.addEventListener("click", function(e) {
         var rowIndex = e.currentTarget.parentElement.parentElement.rowIndex; // button -> TD -> TR -> rowIndex
 
         // remove from data structure
@@ -84,9 +84,9 @@ $(function() {
    * @return {type}    undefined
    */
   function removeItemFromCart(id) {
-    for(var i in cart){
+    for (var i in cart) {
       if (cart[i].id == id) {
-        cart.splice(i,1);
+        cart.splice(i, 1);
       }
     }
   }
@@ -98,15 +98,19 @@ $(function() {
    * @param  {type} e hover event
    * @return {type}   undefined
    */
-  function showAddToCartButton(e){
+  function showAddToCartButton(e) {
     $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
-    $(this).find(".buy").click(function(){
+    $(this).find(".buy").click(function() {
 
       /* add to cart */
       var prodId = $(this.parentElement).find(".prodId").text();
       var prodName = $(this.parentElement).find("h3").text();
       var prodPrice = $(this.parentElement).find(".price").text();
-      cart.push({id: prodId, name:prodName, price:prodPrice});
+      cart.push({
+        id: prodId,
+        name: prodName,
+        price: prodPrice
+      });
 
       refreshBadge();
     })
@@ -129,7 +133,7 @@ $(function() {
    *
    * @return {type}  description
    */
-  function hideAddToCartButton(){
+  function hideAddToCartButton() {
     $(this).find(".buy").remove();
   }
 
@@ -143,18 +147,18 @@ $(function() {
    */
   function showAlert(message, alerttype) {
     $('#alert_placeholder').append(
-      '<div id="alertdiv" class="alert ' + alerttype + ' alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ message + '</div>'
+      '<div id="alertdiv" class="alert ' + alerttype + ' alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + message + '</div>'
     );
 
     setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
       $("#alertdiv").remove();
     }, 5000);
-    
+
   }
 
-// begin
+  // begin
 
-// end
+  // end
 
   /**
    * loadProducts - read product data from json and use to build product panel.
@@ -231,8 +235,8 @@ $(function() {
       "price": 26.99,
       "description": "Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.",
       "imageTitle": "reversible-plaid.jpg",
-      "imageAlt":"reversible plaid scarf",
-      "type":"s"
+      "imageAlt": "reversible plaid scarf",
+      "type": "s"
     },
     {
       "id": 2,
@@ -240,8 +244,8 @@ $(function() {
       "price": 49.99,
       "description": "Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported.",
       "imageTitle": "wool-cable.jpeg",
-      "imageAlt":"wool cable knit scarf",
-      "type":"s"
+      "imageAlt": "wool cable knit scarf",
+      "type": "s"
     },
     {
       "id": 3,
@@ -249,8 +253,8 @@ $(function() {
       "price": 29.99,
       "description": "Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton.",
       "imageTitle": "northern-lights.jpg",
-      "imageAlt":"norther lights scarf",
-      "type":"s"
+      "imageAlt": "norther lights scarf",
+      "type": "s"
     },
     {
       "id": 4,
@@ -258,8 +262,8 @@ $(function() {
       "price": 11.99,
       "description": "A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic.",
       "imageTitle": "ombre-infinity.jpg",
-      "imageAlt":"ombre infinity scarf",
-      "type":"s"
+      "imageAlt": "ombre infinity scarf",
+      "type": "s"
     },
     {
       "id": 5,
@@ -267,8 +271,8 @@ $(function() {
       "price": 18.99,
       "description": "Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic.",
       "imageTitle": "fringed-plaid.jpeg",
-      "imageAlt":"fringed plaid scarf",
-      "type":"s"
+      "imageAlt": "fringed plaid scarf",
+      "type": "s"
     },
     {
       "id": 6,
@@ -276,8 +280,8 @@ $(function() {
       "price": 22.99,
       "description": "The Who What Wear Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent, so you can adjust to contrast or match your outfit; soft and lush, it’s your stylish standoff against cold AC and unexpected fall breezes. 100% acrylic",
       "imageTitle": "multi-color.jpeg",
-      "imageAlt":"multi color scarf",
-      "type":"s"
+      "imageAlt": "multi color scarf",
+      "type": "s"
     },
     {
       "id": 7,
@@ -285,8 +289,8 @@ $(function() {
       "price": 249.99,
       "description": "Luxurious silk scarf with subtle paisley pattern. 100% silk",
       "imageTitle": "etro.png",
-      "imageAlt":"northern lights scarf",
-      "type":"s"
+      "imageAlt": "northern lights scarf",
+      "type": "s"
     },
     {
       "id": 8,
@@ -294,8 +298,8 @@ $(function() {
       "price": 70.99,
       "description": "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
       "imageTitle": "twill.jpg",
-      "imageAlt":"ashby twill scarf",
-      "type":"s"
+      "imageAlt": "ashby twill scarf",
+      "type": "s"
     }
   ]
 
@@ -306,7 +310,7 @@ $(function() {
   loadProducts();
 
   /*------------------ EVENTS -------------------*/
-  $( "#mail-form" ).submit(subcribeToEmail);
+  $("#mail-form").submit(subcribeToEmail);
   $(".fa-shopping-cart").click(buildCartDialog);
   $(".product").hover(showAddToCartButton, hideAddToCartButton);
 
