@@ -74,6 +74,13 @@ $(function() {
     /* show the dialog - this is wired directly on the cart icon */
   }
 
+
+  /**
+   * removeItemFromCart - Removes an item from cart by id
+   *
+   * @param  {type} id id of product to remove
+   * @return {type}    undefined   
+   */
   function removeItemFromCart(id) {
     for(var i in cart){
       if (cart[i].id == id) {
