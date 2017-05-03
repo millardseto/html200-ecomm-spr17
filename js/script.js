@@ -3,31 +3,32 @@ $(function() {
 
   var cart = []; /* global cart */
 
+  /*------------------ FUNCTIONS -------------------*/
+
   /**
    * subcribeToEmail - Get email address from user.   Simulates subscription buy
    * showing message in log and directly in UI.
    *
    * @event  {type} standard click event
-   * @return {type} none
+   * @return {type} undefined
    */
   function subcribeToEmail( event ) {
     var email = $("#email").val();
     var message = "Thanks for signing up for our mailing list, " + email;
     console.log(message);
-    $("#aside-message").text(message);
+    $("#aside-message").text(message); /*Extra Challenge*/
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
   }
 
 
-
-  $( "#mail-form" ).submit(subcribeToEmail);
-
-
-
-  /* Adds item to cart */
-  $(".fa-shopping-cart").click(function(){
+  /**
+   * addToCart - Adds a product to shopping cart
+   *
+   * @return {type}  undefined
+   */
+  function addToCart(){
     /* delete all existing rows - keep header */
     $("#cartTable tr").not(".headerRow").remove();
 
@@ -46,28 +47,48 @@ $(function() {
     }
 
     /* show the dialog - this is wired directly on the cart icon */
-  });
-
-  $(".product").hover(
-    function(e){
-      $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
-      $(this).find(".buy").click(function(){
-
-        /* add to cart */
-        var prodName = $(this.parentElement).find("h3").text();
-        var prodPrice = $(this.parentElement).find(".price").text();
-        cart.push({name:prodName, price:prodPrice});
-
-        /* show count in badge */
-        var badge = $("header").find('.badge');
-        badge.text(cart.length);
-      })
-    },
-    function(){
-      $(this).find(".buy").remove();
-    });
+  }
 
 
+  /**
+   * showAddToCartButton - shows the addToCart button.  Adds button to current
+   * context so the button doesnt need to be coded in html for every product.
+   *
+   * @param  {type} e hover event
+   * @return {type}   undefined
+   */
+  function showAddToCartButton(e){
+    $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
+    $(this).find(".buy").click(function(){
+
+      /* add to cart */
+      var prodName = $(this.parentElement).find("h3").text();
+      var prodPrice = $(this.parentElement).find(".price").text();
+      cart.push({name:prodName, price:prodPrice});
+
+      /* show count in badge */
+      var badge = $("header").find('.badge');
+      badge.text(cart.length);
+    })
+  }
+
+  /**
+   * hideAddToCartButton - hides the addToCart button
+   *
+   * @return {type}  description
+   */
+  function hideAddToCartButton(){
+    $(this).find(".buy").remove();
+  }
+
+
+  /*------------------ EVENTS -------------------*/
+  $( "#mail-form" ).submit(subcribeToEmail);
+  $(".fa-shopping-cart").click(addToCart);
+  $(".product").hover(showAddToCartButton, hideAddToCartButton);
+
+
+  /*------------------ DATA -------------------*/
   var products = [{
       "name": "Reversible Plaid",
       "price": 26.99,
