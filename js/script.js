@@ -145,11 +145,11 @@ $(function() {
     $('#alert_placeholder').append(
       '<div id="alertdiv" class="alert ' + alerttype + ' alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ message + '</div>'
     );
-    /*
+
     setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
       $("#alertdiv").remove();
     }, 5000);
-    */
+    
   }
 
 // begin
