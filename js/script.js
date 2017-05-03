@@ -6,8 +6,8 @@ $(function() {
   /*------------------ FUNCTIONS -------------------*/
 
   /**
-   * subcribeToEmail - Get email address from user.   Simulates subscription buy
-   * showing message in log and directly in UI.
+   * subcribeToEmail - Get email address from user.   Simulates subscription by
+   * showing message directly in UI.
    *
    * @event  {type} standard click event
    * @return {type} undefined
@@ -17,11 +17,13 @@ $(function() {
     var message = "";
     if (email) {
       message = "Thanks for signing up for our mailing list, " + email;
+      showAlert(message, "alert-success");
     } else {
       message = "Please enter a valid email address.";
+      showAlert(message, "alert-danger");
     }
-    console.log(message);
-    $("#aside-message").text(message);
+    //console.log(message);
+    //$("#aside-message").text(message);
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
@@ -79,7 +81,7 @@ $(function() {
    * removeItemFromCart - Removes an item from cart by id
    *
    * @param  {type} id id of product to remove
-   * @return {type}    undefined   
+   * @return {type}    undefined
    */
   function removeItemFromCart(id) {
     for(var i in cart){
@@ -132,6 +134,27 @@ $(function() {
   }
 
 
+  /**
+   * showalert - helper to show bootstrap alert
+   *
+   * @param  {type} message   text message to show
+   * @param  {type} alerttype type of alert
+   * @return {type}           undefined
+   */
+  function showAlert(message, alerttype) {
+    $('#alert_placeholder').append(
+      '<div id="alertdiv" class="alert ' + alerttype + ' alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ message + '</div>'
+    );
+    /*
+    setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+      $("#alertdiv").remove();
+    }, 5000);
+    */
+  }
+
+// begin
+
+// end
 
   /**
    * loadProducts - read product data from json and use to build product panel.
