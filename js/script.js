@@ -24,11 +24,11 @@ $(function() {
 
 
   /**
-   * addToCart - Adds a product to shopping cart
+   * buildCartDialog - builds UI of the cart object
    *
    * @return {type}  undefined
    */
-  function addToCart(){
+  function buildCartDialog(){
     /* delete all existing rows - keep header */
     $("#cartTable tr").not(".headerRow").remove();
 
@@ -272,7 +272,7 @@ $(function() {
 
   /*------------------ EVENTS -------------------*/
   $( "#mail-form" ).submit(subcribeToEmail);
-  $(".fa-shopping-cart").click(addToCart);
+  $(".fa-shopping-cart").click(buildCartDialog);
   $(".product").hover(showAddToCartButton, hideAddToCartButton);
 
 });
