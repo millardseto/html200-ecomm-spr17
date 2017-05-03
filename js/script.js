@@ -14,7 +14,12 @@ $(function() {
    */
   function subcribeToEmail( event ) {
     var email = $("#email").val();
-    var message = "Thanks for signing up for our mailing list, " + email;
+    var message = "";
+    if (email) {
+      message = "Thanks for signing up for our mailing list, " + email;
+    } else {
+      message = "Please enter a valid email address.";
+    }
     console.log(message);
     $("#aside-message").text(message);
 
