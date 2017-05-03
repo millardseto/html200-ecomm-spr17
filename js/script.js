@@ -16,7 +16,7 @@ $(function() {
     var email = $("#email").val();
     var message = "Thanks for signing up for our mailing list, " + email;
     console.log(message);
-    $("#aside-message").text(message); /*Extra Challenge*/
+    $("#aside-message").text(message);
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
@@ -82,10 +82,65 @@ $(function() {
   }
 
 
-  /*------------------ EVENTS -------------------*/
-  $( "#mail-form" ).submit(subcribeToEmail);
-  $(".fa-shopping-cart").click(addToCart);
-  $(".product").hover(showAddToCartButton, hideAddToCartButton);
+
+  /**
+   * loadProducts - read product data from json and use to build product panel.
+   *
+   * @return {type}  undefined
+   */
+  function loadProducts() {
+    // find the item-container (where products live).
+    var productContainter = document.getElementById('item-container');
+
+    // loop through each product
+    /* here's our template
+    <div class="product">
+      <h3>Reversible Plaid</h3>
+      <img src="images/reversible-plaid.jpg" alt="reversible plaid scarf">
+      <p class="block-with-text">Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.</p>
+      <p class="price">26.99</p>
+    </div>
+    */
+    for (var i in products) {
+      // make div wrapper
+      var prodPanel = document.createElement("div");
+      prodPanel.setAttribute("class", "product");
+
+      // add title
+      var prodTitle = document.createElement("h3");
+      var prodTitleText = document.createTextNode(products[i].name);
+      prodTitle.appendChild(prodTitleText);
+      prodPanel.appendChild(prodTitle);
+
+      // add image
+      var prodImage = document.createElement("img");
+      prodImage.setAttribute("src", "./images/" + products[i].imageTitle);
+      prodImage.setAttribute("alt", products[i].imageAlt); // todo: update data so we can load .imageAltText
+      prodPanel.appendChild(prodImage);
+
+      // add description
+      var prodDescription = document.createElement("p");
+      prodDescription.setAttribute("class", "block-with-text");
+      var prodDescriptionText = document.createTextNode(products[i].description);
+      prodDescription.appendChild(prodDescriptionText);
+      prodPanel.appendChild(prodDescription);
+
+      // add price
+      var prodPrice = document.createElement("p");
+      prodPrice.setAttribute("class", "price");
+      var prodPriceText = document.createTextNode(products[i].price);
+      prodPrice.appendChild(prodPriceText);
+      prodPanel.appendChild(prodPrice);
+
+      // finally add the panel to the container
+      productContainter.appendChild(prodPanel);
+    } // end for loop
+
+
+  } // end loadProducts function
+
+
+
 
 
   /*------------------ DATA -------------------*/
@@ -93,50 +148,69 @@ $(function() {
       "name": "Reversible Plaid",
       "price": 26.99,
       "description": "Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.",
-      "imageTitle": "reversible-plaid.jpg"
+      "imageTitle": "reversible-plaid.jpg",
+      "imageAlt":"reversible plaid scarf"
     },
     {
       "name": "Wool Cable Knit",
       "price": 49.99,
       "description": "Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported.",
-      "imageTitle": "wool-cable.jpeg"
+      "imageTitle": "wool-cable.jpeg",
+      "imageAlt":""
     },
     {
       "name": "Northern Lights",
       "price": 29.99,
       "description": "Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton.",
-      "imageTitle": "northern-lights.jpg"
+      "imageTitle": "northern-lights.jpg",
+      "imageAlt":""
     },
     {
       "name": "Ombre Infinity",
       "price": 11.99,
       "description": "A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic.",
-      "imageTitle": "ombre-infinity.jpg"
+      "imageTitle": "ombre-infinity.jpg",
+      "imageAlt":"ombre infinity scarf"
     },
     {
       "name": "Fringed Plaid",
       "price": 18.99,
       "description": "Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic.",
-      "imageTitle": "fringed-plaid.jpeg"
+      "imageTitle": "fringed-plaid.jpeg",
+      "imageAlt":"fringed plaid scarf"
     },
     {
       "name": "Multi Color",
       "price": 22.99,
       "description": "The Who What Wear Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent, so you can adjust to contrast or match your outfit; soft and lush, it’s your stylish standoff against cold AC and unexpected fall breezes. 100% acrylic",
-      "imageTitle": "multi-color.jpeg"
+      "imageTitle": "multi-color.jpeg",
+      "imageAlt":"multi color scarf"
     },
     {
       "name": "Etro Paisley-Print Silk",
       "price": 249.99,
       "description": "Luxurious silk scarf with subtle paisley pattern. 100% silk",
-      "imageTitle": "etro.png"
+      "imageTitle": "etro.png",
+      "imageAlt":"northern lights scarf"
     },
     {
       "name": "Ashby Twill",
       "price": 70.99,
       "description": "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
-      "imageTitle": "twill.jpg"
+      "imageTitle": "twill.jpg",
+      "imageAlt":"ashby twill scarf"
     }
   ]
+
+
+  /*------------------ LOAD DATA -------------------*/
+  // on load... must occur before event wireup.  Can't wireup events to controls
+  // until they exist.
+  loadProducts();
+
+  /*------------------ EVENTS -------------------*/
+  $( "#mail-form" ).submit(subcribeToEmail);
+  $(".fa-shopping-cart").click(addToCart);
+  $(".product").hover(showAddToCartButton, hideAddToCartButton);
 
 });
