@@ -141,9 +141,9 @@ $(function() {
 
 
 
-
-
   /*------------------ DATA -------------------*/
+
+  // Data is imbedded.  To use ajax load, you need a server.
   var products = [{
       "name": "Reversible Plaid",
       "price": 26.99,
