@@ -201,7 +201,7 @@ $(function() {
 
       // add description
       var prodDescription = document.createElement("p");
-      //prodDescription.setAttribute("class", "block-with-text");
+      prodDescription.setAttribute("class", "prodDescription block-with-text");
       var prodDescriptionText = document.createTextNode(products[i].description);
       prodDescription.appendChild(prodDescriptionText);
       prodPanelBody.appendChild(prodDescription);
@@ -222,8 +222,8 @@ $(function() {
       prodPanelBody.appendChild(prodId);
 
       // make panel footer
-      var prodPanelFooter = document.createElement("div");
-      prodPanelFooter.setAttribute("class", "panel-footer");
+      //var prodPanelFooter = document.createElement("div");
+      //prodPanelFooter.setAttribute("class", "panel-footer");
 
       // finally add the panel to the container
       prodPanel.appendChild(prodPanelBody);
@@ -234,7 +234,31 @@ $(function() {
 
   } // end loadProducts function
 
+  function showDetails(){
+    // get fields
+    var prodId = $(this).find(".prodId").text();
+    var prodName = $(this).find("h3").text();
+    var prodPrice = $(this).find(".price").text();
+    var prodDescription = $(this).find(".prodDescription").text();
+    var prodURL = $(this).find("img").attr('src');
+    console.log(prodURL);
 
+    // plug data to dialog
+    var title = $("#prodDetail .modal-title");
+    title.text(prodName);
+
+    var modalDescription = $("#prodDetail .modal-description");
+    modalDescription.text(prodDescription);
+
+    var modalImg = $("#prodDetail img");
+    modalImg.attr("src", prodURL);
+
+    var modalPrice = $("#prodDetail .modal-price");
+    modalPrice.text(prodPrice);
+
+    // show dialog
+    $("#prodDetail").modal('show');
+  }
 
   /*------------------ DATA -------------------*/
 
@@ -323,5 +347,5 @@ $(function() {
   $("#mail-form").submit(subcribeToEmail);
   $(".fa-shopping-cart").click(buildCartDialog);
   $(".product").hover(showAddToCartButton, hideAddToCartButton);
-
+  $(".product").on("click", showDetails);
 });

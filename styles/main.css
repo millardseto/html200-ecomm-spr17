@@ -152,8 +152,6 @@ h3 {
 .product {
   width: 25rem;
   vertical-align: top;
-  min-height: 55rem;
-  /* min-height: 100%;*/ /* push footer to bottom */
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 2rem;
@@ -161,9 +159,6 @@ h3 {
   positon: relative;
 }
 
-.productName {
-
-}
 
 .addToCart {
   float: right;
