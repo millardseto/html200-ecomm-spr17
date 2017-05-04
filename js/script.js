@@ -167,7 +167,7 @@ $(function() {
    */
   function loadProducts() {
     // find the item-container (where products live).
-    var productContainter = document.getElementById('item-container');
+    var productContainer = document.getElementById('item-container');
 
     // loop through each product
     /* here's our template
@@ -181,33 +181,37 @@ $(function() {
     for (var i in products) {
       // make div wrapper
       var prodPanel = document.createElement("div");
-      prodPanel.setAttribute("class", "product");
+      prodPanel.setAttribute("class", "panel panel-default product");
+
+      // make panel body
+      var prodPanelBody = document.createElement("div");
+      prodPanelBody.setAttribute("class", "panel-body ");
 
       // add title
       var prodTitle = document.createElement("h3");
       var prodTitleText = document.createTextNode(products[i].name);
       prodTitle.appendChild(prodTitleText);
-      prodPanel.appendChild(prodTitle);
+      prodPanelBody.appendChild(prodTitle);
 
       // add image
       var prodImage = document.createElement("img");
       prodImage.setAttribute("src", "./images/" + products[i].imageTitle);
       prodImage.setAttribute("alt", products[i].imageAlt); // todo: update data so we can load .imageAltText
-      prodPanel.appendChild(prodImage);
+      prodPanelBody.appendChild(prodImage);
 
       // add description
       var prodDescription = document.createElement("p");
       //prodDescription.setAttribute("class", "block-with-text");
       var prodDescriptionText = document.createTextNode(products[i].description);
       prodDescription.appendChild(prodDescriptionText);
-      prodPanel.appendChild(prodDescription);
+      prodPanelBody.appendChild(prodDescription);
 
       // add price
       var prodPrice = document.createElement("p");
       prodPrice.setAttribute("class", "price");
       var prodPriceText = document.createTextNode(products[i].price);
       prodPrice.appendChild(prodPriceText);
-      prodPanel.appendChild(prodPrice);
+      prodPanelBody.appendChild(prodPrice);
 
       // add hidden id
       var prodId = document.createElement("p");
@@ -215,10 +219,11 @@ $(function() {
       prodId.setAttribute("hidden", "hidden");
       var prodIdText = document.createTextNode(products[i].id);
       prodId.appendChild(prodIdText);
-      prodPanel.appendChild(prodId);
+      prodPanelBody.appendChild(prodId);
 
       // finally add the panel to the container
-      productContainter.appendChild(prodPanel);
+      prodPanel.appendChild(prodPanelBody);
+      productContainer.appendChild(prodPanel);
     } // end for loop
 
 
