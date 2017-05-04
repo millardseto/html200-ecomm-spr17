@@ -252,20 +252,47 @@ $(function() {
     console.log(prodURL);
 
     // plug data to dialog
-    var title = $("#prodDetail .modal-title");
+    var modalId = $("#modal-id");
+    modalId.text(prodId);
+
+    var title = $("#modal-title");
     title.text(prodName);
 
-    var modalDescription = $("#prodDetail .modal-description");
+    var modalDescription = $("#modal-description");
     modalDescription.text(prodDescription);
 
-    var modalImg = $("#prodDetail img");
+    var modalImg = $("#modal-image");
     modalImg.attr("src", prodURL);
 
-    var modalPrice = $("#prodDetail .modal-price");
+    var modalPrice = $("#modal-price");
     modalPrice.text(prodPrice);
 
     // show dialog
     $("#prodDetail").modal('show');
+  }
+
+
+  /**
+   * detailToCart - get fields from detail dialog and add to cart.
+   *
+   * @return {type}  undefined
+   */
+  function detailToCart(){
+    /* add to cart xxx  */
+    var prodId = $(this.parentElement.parentElement).find("#modal-id").text();
+    var prodName = $(this.parentElement.parentElement).find("#modal-title").text();
+    var prodPrice = $(this.parentElement.parentElement).find("#modal-price").text();
+    cart.push({
+      id: prodId,
+      name: prodName,
+      price: prodPrice
+    });
+
+    refreshBadge();
+
+
+    // close dialog
+    $('#prodDetail').modal('toggle');
   }
 
   /*------------------ DATA -------------------*/
@@ -356,4 +383,5 @@ $(function() {
   $(".fa-shopping-cart").click(buildCartDialog); // show whats in cart
   $(".product").hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
   $(".product").on("click", showDetails); // show product details
+  $("#detailAddToCart").on("click", detailToCart);
 });
