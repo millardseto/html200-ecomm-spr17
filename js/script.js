@@ -99,8 +99,9 @@ $(function() {
    * @return {type}   undefined
    */
   function showAddToCartButton(e) {
-    $(this).append($('<button class="addToCart"><i class="fa fa-cart-plus"></i></button>'));
-    $(this).find(".addToCart").click(function(event) {
+    // the event is on the outer panel, but we want button in the inner panel.  So use firstElementChild
+    $(this.firstElementChild).append($('<button class="addToCart"><i class="fa fa-cart-plus"></i></button>'));
+    $(this.firstElementChild).find(".addToCart").click(function(event) {
 
       /* add to cart */
       var prodId = $(this.parentElement).find(".prodId").text();
