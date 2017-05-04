@@ -159,10 +159,6 @@ $(function() {
 
   }
 
-  // begin
-
-  // end
-
   /**
    * loadProducts - read product data from json and use to build product panel.
    *
@@ -237,6 +233,15 @@ $(function() {
 
   } // end loadProducts function
 
+
+
+
+  /**
+   * showDetails - pulls details from the clicked item and shows it in
+   * a modal dialog.
+   *
+   * @return {type}  description
+   */
   function showDetails(){
     // get fields
     var prodId = $(this).find(".prodId").text();
@@ -347,8 +352,8 @@ $(function() {
   loadProducts();
 
   /*------------------ EVENTS -------------------*/
-  $("#mail-form").submit(subcribeToEmail);
-  $(".fa-shopping-cart").click(buildCartDialog);
-  $(".product").hover(showAddToCartButton, hideAddToCartButton);
-  $(".product").on("click", showDetails);
+  $("#mail-form").submit(subcribeToEmail);  // subscribe to mailing list
+  $(".fa-shopping-cart").click(buildCartDialog); // show whats in cart
+  $(".product").hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
+  $(".product").on("click", showDetails); // show product details
 });
