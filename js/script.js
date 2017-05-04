@@ -221,8 +221,13 @@ $(function() {
       prodId.appendChild(prodIdText);
       prodPanelBody.appendChild(prodId);
 
+      // make panel footer
+      var prodPanelFooter = document.createElement("div");
+      prodPanelFooter.setAttribute("class", "panel-footer");
+
       // finally add the panel to the container
       prodPanel.appendChild(prodPanelBody);
+      //prodPanel.appendChild(prodPanelFooter);
       productContainer.appendChild(prodPanel);
     } // end for loop
 
