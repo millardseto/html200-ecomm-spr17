@@ -100,7 +100,7 @@ $(function() {
    */
   function showAddToCartButton(e) {
     $(this).append($('<button class="addToCart"><i class="fa fa-cart-plus"></i></button>'));
-    $(this).find(".addToCart").click(function() {
+    $(this).find(".addToCart").click(function(event) {
 
       /* add to cart */
       var prodId = $(this.parentElement).find(".prodId").text();
@@ -113,6 +113,8 @@ $(function() {
       });
 
       refreshBadge();
+
+      event.stopPropagation(); // so panel (behind button) does not receive click.
     })
   }
 
