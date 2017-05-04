@@ -99,6 +99,9 @@ $(function() {
    * @return {type}   undefined
    */
   function showAddToCartButton(e) {
+    // find closes product and highlight
+    $(this.firstElementChild).addClass("highlight");
+
     // the event is on the outer panel, but we want button in the inner panel.  So use firstElementChild
     $(this.firstElementChild).append($('<button class="addToCart"><i class="fa fa-cart-plus"></i></button>'));
     $(this.firstElementChild).find(".addToCart").click(function(event) {
@@ -138,6 +141,7 @@ $(function() {
    */
   function hideAddToCartButton() {
     $(this).find(".addToCart").remove();
+    $(this.firstElementChild).removeClass("highlight");
   }
 
 
@@ -383,5 +387,5 @@ $(function() {
   $(".fa-shopping-cart").click(buildCartDialog); // show whats in cart
   $(".product").hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
   $(".product").on("click", showDetails); // show product details
-  $("#detailAddToCart").on("click", detailToCart);
+  $("#detailAddToCart").on("click", detailToCart); // add-to-cart button in detail dialog
 });
