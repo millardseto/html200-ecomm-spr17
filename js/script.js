@@ -197,7 +197,7 @@ $(function() {
 
       // add description
       var prodDescription = document.createElement("p");
-      prodDescription.setAttribute("class", "block-with-text");
+      //prodDescription.setAttribute("class", "block-with-text");
       var prodDescriptionText = document.createTextNode(products[i].description);
       prodDescription.appendChild(prodDescriptionText);
       prodPanel.appendChild(prodDescription);
