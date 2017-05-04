@@ -99,8 +99,8 @@ $(function() {
    * @return {type}   undefined
    */
   function showAddToCartButton(e) {
-    $(this).append($('<button class="buy"><i class="fa fa-cart-plus"></i></button>'));
-    $(this).find(".buy").click(function() {
+    $(this).append($('<button class="addToCart"><i class="fa fa-cart-plus"></i></button>'));
+    $(this).find(".addToCart").click(function() {
 
       /* add to cart */
       var prodId = $(this.parentElement).find(".prodId").text();
@@ -134,7 +134,7 @@ $(function() {
    * @return {type}  description
    */
   function hideAddToCartButton() {
-    $(this).find(".buy").remove();
+    $(this).find(".addToCart").remove();
   }
 
 

@@ -82,10 +82,8 @@ h1 .logo-w {
 input[type="submit"] {
   padding: .25rem;
   background-color: #3D7FCF;
-  /* todo:  determine how to override bootstrap colors */
   border: 1px solid #3D7FCF;
   border-radius: 5px;
-  /* font-size: .75rem; */
   color: white;
 }
 
@@ -160,19 +158,20 @@ h3 {
   margin-right: 1rem;
   margin-bottom: 2rem;
   display: inline-block;
+  positon: relative;
 }
 
 .productName {
 
 }
 
-.buy {
+.addToCart {
   float: right;
+  margin-right: 2rem;
 }
 
 .price {
   float: left;
-  margin-bottom: 0;
 }
 
 
