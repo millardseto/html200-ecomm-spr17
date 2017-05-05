@@ -89,6 +89,8 @@ $(function() {
         cart.splice(i, 1);
       }
     }
+
+    saveCartTolocalStorage();
   }
 
   /**
@@ -115,11 +117,18 @@ $(function() {
         name: prodName,
         price: prodPrice
       });
+      saveCartTolocalStorage();
+
 
       refreshBadge();
 
       event.stopPropagation(); // so panel (behind button) does not receive click.
     })
+  }
+
+  function saveCartTolocalStorage() {
+    var jsonStr = JSON.stringify(cart);
+    localStorage.setItem("cart", jsonStr);
   }
 
 
@@ -282,7 +291,6 @@ $(function() {
    * @return {type}  undefined
    */
   function detailToCart(){
-    /* add to cart xxx  */
     var prodId = $(this.parentElement.parentElement).find("#modal-id").text();
     var prodName = $(this.parentElement.parentElement).find("#modal-title").text();
     var prodPrice = $(this.parentElement.parentElement).find("#modal-price").text();
@@ -293,11 +301,26 @@ $(function() {
     });
 
     refreshBadge();
+    saveCartTolocalStorage();
 
 
     // close dialog
     $('#prodDetail').modal('toggle');
   }
+
+
+  /**
+   * reloadCartFromLocalStorage - reload cart from storage and refresh badge
+   *
+   * @return {type}  description
+   */
+  function loadCartFromLocalStorage(){
+    var cartValue = localStorage.getItem( "cart" );
+    cart = JSON.parse( cartValue );
+    refreshBadge();
+  }
+
+
 
   /*------------------ DATA -------------------*/
 
@@ -377,10 +400,12 @@ $(function() {
   ]
 
 
+
   /*------------------ LOAD DATA -------------------*/
   // on load... must occur before event wireup.  Can't wireup events to controls
   // until they exist.
   loadProducts();
+  loadCartFromLocalStorage();
 
   /*------------------ EVENTS -------------------*/
   $("#mail-form").submit(subcribeToEmail);  // subscribe to mailing list
