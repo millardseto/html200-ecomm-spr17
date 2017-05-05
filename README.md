@@ -82,6 +82,7 @@ Resize to narrow page.  Verify layout and styles (done by the media query).
 Resize slowly.  Observe change (or lack thereof) at xs, sm, md, lg, xl sizes.
 Hover over items.
 Change default font size, verify layout.
+Clear browser cache and open page.  Verify page works when no previous cart.
 
 Do all tests on different platforms / browsers:
 Windows

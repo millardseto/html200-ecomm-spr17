@@ -140,7 +140,9 @@ $(function() {
   function refreshBadge() {
     /* show count in badge */
     var badge = $("header").find('.badge');
-    badge.text(cart.length);
+    if (cart) {
+      badge.text(cart.length);
+    }
   }
 
   /**
@@ -317,6 +319,9 @@ $(function() {
   function loadCartFromLocalStorage(){
     var cartValue = localStorage.getItem( "cart" );
     cart = JSON.parse( cartValue );
+    if (cart == null) {
+      cart = [];
+    }
     refreshBadge();
   }
 
