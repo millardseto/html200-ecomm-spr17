@@ -15,6 +15,8 @@ $(function() {
   function subcribeToEmail(event) {
     var email = $("#email").val();
     var message = "";
+
+    // blank email is already checked via required field attribute, this is a fallback check.
     if (email) {
       message = "Thanks for signing up for our mailing list, " + email;
       showAlert(message, "alert-success");
@@ -22,8 +24,6 @@ $(function() {
       message = "Please enter a valid email address.";
       showAlert(message, "alert-danger");
     }
-    //console.log(message);
-    //$("#aside-message").text(message);
 
     /* bypass normal processing because form is not really being submitted to server */
     event.preventDefault();
