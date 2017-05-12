@@ -11,11 +11,9 @@ p {
 
 
 /* TODO: size images manually so this is not necessary */
-
 img {
   max-height: 20rem;
 }
-
 
 /***************** NAV *****************/
 nav {
@@ -38,7 +36,7 @@ nav .row {
   padding-bottom: .5em;
 }
 
-nav .menuItem a {
+nav a {
   color: white;
 }
 
@@ -70,6 +68,13 @@ nav ul a {
   color: white;
   /* remove underline */
   text-decoration: none;
+}
+
+.col-1 {
+  flex: 1;
+}
+.col-4 {
+  flex: 4;
 }
 
 /**************** HERO *****************/
@@ -130,26 +135,8 @@ extra spacing. */
   }
 }
 
-/* if width < px using px because it's the bootstrap col-md break point
-handle small screen reflow, add borders, move cart to top  */
-/*
-@media only screen and (max-width: 768px) {
 
-  nav .menuItem {
 
-    border-bottom: 1px solid rgb(215,	227,	242);
-  }
-
-  nav .row {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-}*/
-
-.menuItem {
-  flex: 4;
-}
 
 /* narrow width */
 
