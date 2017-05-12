@@ -97,7 +97,7 @@ input[type="submit"] {
 }
 
 /**************** MEDIA QUERIES ****************/
-/* if width > 992px  using px because it's the bootstrap col-md break point
+/* if width > px  using px because it's the bootstrap col-md break point
 margin needed in wide screen so mailing list aligns with products.
 On smaller screen, mailing list is at top of ui and does not need the
 extra spacing. */
@@ -107,7 +107,7 @@ extra spacing. */
   }
 }
 
-/* if width < 992px using px because it's the bootstrap col-md break point
+/* if width < px using px because it's the bootstrap col-md break point
 handle small screen reflow, add borders, move cart to top  */
 @media only screen and (max-width: 768px) {
   /* add borders to separate menu items */
