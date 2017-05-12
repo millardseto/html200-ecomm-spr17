@@ -23,18 +23,16 @@
 
 <body>
   <header>
-    <!-- The push class will move columns to the right while the pull class will move columns to the left. -->
-    <nav class="container-fluid">
-      <div class="row">
-        <!-- cart natural (mobile) position is at the top (or left).  When md size, push it 11 columns to the right. -->
-        <div class="cart-info col-sm-1 menuItem col-sm-push-11">
-          <i class="fa fa-shopping-cart" data-toggle="modal" data-target="#myModal" aria-hidden="true"><span class="badge">0</span></i>
-        </div>
-        <div class="menuItem col-sm-push-pull-1 col-sm-4"><a href="#">Hats</a></div>
-        <div class="menuItem col-sm-pull-1 col-sm-4"><a href="#">Gloves</a></div>
-        <div class="menuItem col-sm-pull-1 col-sm-3"><a href="#">Scarves</a></div>
-      </div>
-    </nav>
+    <div class="nav-container">
+        <nav>
+          <ul class="row">
+            <li class="menuItem"><a href="#">Hats</a></li>
+            <li class="menuItem"><a href="#">Gloves</a></li>
+            <li class="menuItem"><a href="#">Scarves</a></li>
+            <li class="menuItem cart-info"><i class="fa fa-shopping-cart " data-toggle="modal" data-target="#myModal" aria-hidden="true"><span class="badge">0</span></i></li>
+          </ul>
+        </nav>
+    </div>
 
     <img src="images/logo-scarfcat-w70.png" alt="dapper cartoon cat wearing a scarf">
     <h1 class="logo-text">

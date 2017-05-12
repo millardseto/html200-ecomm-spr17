@@ -19,6 +19,7 @@ img {
 
 /***************** NAV *****************/
 nav {
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -41,12 +42,34 @@ nav .menuItem a {
   color: white;
 }
 
-.cart-info {
+nav .cart-info {
   color: white;
+  flex: 1;
 }
 
 .badge {
   margin-left: .5rem;
+}
+
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  padding: 1rem;
+  list-style: none;
+}
+
+nav ul a {
+  color: white;
+  /* remove underline */
+  text-decoration: none;
 }
 
 /**************** HERO *****************/
@@ -109,20 +132,60 @@ extra spacing. */
 
 /* if width < px using px because it's the bootstrap col-md break point
 handle small screen reflow, add borders, move cart to top  */
+/*
 @media only screen and (max-width: 768px) {
-  /* add borders to separate menu items */
+
   nav .menuItem {
-    /* lighter blue */
+
     border-bottom: 1px solid rgb(215,	227,	242);
   }
 
-  /* remove extra border */
   nav .row {
     padding-top: 0;
     padding-bottom: 0;
   }
 
-  /* move cart to top - this is done by bootstrap col-md-push*/
+}*/
+
+.menuItem {
+  flex: 4;
+}
+
+/* narrow width */
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    padding: 1rem;
+    width: 100%;
+    list-style: none;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid rgb(215,	227,	242);
+    border-collapse: collapse;
+  }
+
+  nav .row {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* rearrange menu item */
+
+  ul li:first-child {
+    order: 4;
+  }
+  ul li:nth-child(1) {
+    order: 1;
+  }
+  ul li:nth-child(2) {
+    order: 2;
+  }
+  ul li:nth-child(3) {
+    order: 3;
+  }
 }
 
 /*********** PRODUCTS SECTION ***********/
