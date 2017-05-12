@@ -3,13 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>QUnit Example</title>
+  <title>ECommerce Test</title>
   <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+
+  <script type="text/javascript">
+    var $q = jQuery.noConflict(true),
+    $ = null,
+    jQuery = null;
+  </script>
 </head>
 <body>
+  <!-- setup based on http://www.michelgotta.de/user-interfaces-and-unittesting-with-qunit-an/  -->
   <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+  <div id="qunit-fixture">  </div>
+  <iframe id="testframe" src="/index.html" width="800" height="600"></iframe>
+  
   <script src="tests.js"></script>
 </body>
+
+
 </html>
