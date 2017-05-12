@@ -209,7 +209,7 @@ $(function() {
 
       // add image
       var prodImage = document.createElement("img");
-      prodImage.setAttribute("src", "/images/" + products[i].imageTitle);
+      prodImage.setAttribute("src", "images/" + products[i].imageTitle);
       prodImage.setAttribute("alt", products[i].imageAlt); // todo: update data so we can load .imageAltText
       prodPanelBody.appendChild(prodImage);
 
