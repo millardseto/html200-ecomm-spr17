@@ -9,8 +9,6 @@ p {
   color: #2d2d2d;
 }
 
-
-/* TODO: size images manually so this is not necessary */
 img {
   max-height: 20rem;
 }
@@ -125,10 +123,9 @@ input[type="submit"] {
 }
 
 /**************** MEDIA QUERIES ****************/
-/* if width > px  using px because it's the bootstrap col-md break point
-margin needed in wide screen so mailing list aligns with products.
-On smaller screen, mailing list is at top of ui and does not need the
-extra spacing. */
+
+/* mailing list module at narrow width doesnt need top margin, but at wider
+widths mailing list module should align with product items container. */
 @media only screen and (min-width: 768px) {
   .mailing-list {
     margin-top: 7rem;
@@ -136,14 +133,12 @@ extra spacing. */
 }
 
 
-
-
-/* narrow width */
-
+/* narrow width  - menu will stack, full width, add line separator, move cart to top.*/
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
   }
+
   nav li {
     padding: 1rem;
     width: 100%;
@@ -151,7 +146,6 @@ extra spacing. */
     display: block;
     text-align: center;
     border-bottom: 1px solid rgb(215,	227,	242);
-    border-collapse: collapse;
   }
 
   nav .row {
@@ -160,9 +154,8 @@ extra spacing. */
   }
 
   /* rearrange menu item */
-
   ul li:first-child {
-    order: 4;
+    order: 4; /* bring cart to top */
   }
   ul li:nth-child(1) {
     order: 1;
