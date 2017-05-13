@@ -322,7 +322,7 @@ $(function() {
     if (cart == null) {
       cart = [];
     }
-    refreshBadge();
+
   }
 
 
@@ -411,7 +411,8 @@ $(function() {
   // until they exist.
   loadProducts();
   loadCartFromLocalStorage();
-
+  refreshBadge();
+  
   /*------------------ EVENTS -------------------*/
   $("#mail-form").submit(subcribeToEmail);  // subscribe to mailing list
   $(".fa-shopping-cart").click(buildCartDialog); // show whats in cart
