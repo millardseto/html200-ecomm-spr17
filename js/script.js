@@ -126,6 +126,12 @@ $(function() {
     })
   }
 
+
+  /**
+   * saveCartTolocalStorage - put cart contents into localStorage
+   *
+   * @return {type}  description
+   */
   function saveCartTolocalStorage() {
     var jsonStr = JSON.stringify(cart);
     localStorage.setItem("cart", jsonStr);
@@ -412,7 +418,7 @@ $(function() {
   loadProducts();
   loadCartFromLocalStorage();
   refreshBadge();
-  
+
   /*------------------ EVENTS -------------------*/
   $("#mail-form").submit(subcribeToEmail);  // subscribe to mailing list
   $(".fa-shopping-cart").click(buildCartDialog); // show whats in cart
