@@ -62,7 +62,7 @@ $(function() {
         var rowIndex = e.currentTarget.parentElement.parentElement.rowIndex; // button -> TD -> TR -> rowIndex
 
         // remove from data structure
-        var id = cartTable.rows[rowIndex].cells[0].innerText; //todo get the id from the row
+        var id = cartTable.rows[rowIndex].cells[0].innerText;
         removeItemFromCart(id);
 
         // remove from UI
