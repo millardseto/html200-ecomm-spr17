@@ -83,6 +83,12 @@ After saving several items to cart, close and reopen browser.  Verify cart conte
 MENU
 When narrow screen does menu stack?  Do line separators appear?  Does cart move to top?  Are all page elements visible?
 When wider screen, does menu go back to inline?  Do separators disappear?  Does cart move to far right? Are all page elements visible?
+Does the color match with the mockup?
+Is the text readable?
+Does the font match with the mockup?
+Does logo text have caps on every word?  
+Does the logo text wrap and match the mockup?
+Is there sufficient spacing around logo image and logo text?
 
 MAILING LIST
 Submit bad email address.  Expect validation error in UI.
@@ -97,11 +103,27 @@ Slowly resize to full screen.  Observe change (or lack thereof).
 Hover over items.  Do hover styles appear?
 Change default font size, verify layout.
 
+PRODUCTS
+Do products reflow as browser size changes?
+Are all heights even?
+Do all products have consistent content?
+Does ellipses appear on long text?
+When item is clicked, does detail dialog appear?  Does the detail dialog content match with summary content?
+Are items spaced correctly between themselves?
+Is there sufficient padding?
+
+
 PERFORMANCE
 Check chrome developer tool during all tests to verify no hidden errors are occurring.
 Check chrome developer tool for large load times.
 Check chrome developer tool for unusual data transfer sizes (very large pictures.)
 Check for console.logs that should be removed.
+Are there any libraries loading that aren't being used?
+Are linked files and scripts minified?
+
+ACCESSIBILITY
+Do all images have alt-text.
+
 
 PLATFORMS
 Do all tests on different platforms / browsers:
