@@ -421,7 +421,7 @@ $(function() {
 
   /*------------------ EVENTS -------------------*/
   $('#mail-form').submit(subcribeToEmail);  // subscribe to mailing list
-  $('.fa-shopping-cart').click(buildCartDialog); // show whats in cart
+  $('.fa-shopping-cart').on('click', buildCartDialog); // show whats in cart
   $('.product').hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
   $('.product').on('click', showDetails); // show product details
   $('#detailAddToCart').on('click', detailToCart); // add-to-cart button in detail dialog
