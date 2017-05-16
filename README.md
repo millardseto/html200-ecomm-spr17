@@ -78,11 +78,15 @@ Submit bad email address.
 Submit long email address.
 Submit short email address.
 Submit blank email address.
-Resize to narrow page.  Verify layout and styles (done by the media query).
-Resize slowly.  Observe change (or lack thereof) at xs, sm, md, lg, xl sizes.
-Hover over items.
+Slowly resize to narrow page.  Verify layout and styles (done by the media query).
+Slowly resize to full screen.  Observe change (or lack thereof).
+Hover over items.  Do hover styles appear?
 Change default font size, verify layout.
-Clear browser cache and open page.  Verify page works when no previous cart.
+Clear browser cache and open page.  Verify page works when no previous cart saved to local storage.
+After saving several items to cart, close and reopen browser.  Verify cart content.
+Check chrome developer tool during all tests to verify no hidden errors are occuring.
+Check chrome developer tool for large load times.
+Check chrome developer tool for unusual data transfer sizes (very large pictures.)
 
 Do all tests on different platforms / browsers:
 Windows
