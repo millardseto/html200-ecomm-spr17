@@ -100,7 +100,7 @@ After submitting valid email address, does confirmation message appear?  Does it
 LAYOUT
 Slowly resize to narrow page.  Verify layout and styles (done by the media query).
 Slowly resize to full screen.  Observe change (or lack thereof).
-Hover over items.  Do hover styles appear?
+Hover over items.  Do hover styles appear?  Are they removed when no longer in hover?
 Change default font size, verify layout.
 
 PRODUCTS
@@ -123,6 +123,8 @@ Are linked files and scripts minified?
 
 ACCESSIBILITY
 Do all images have alt-text.
+Do the color choices consider color blind users?
+Are semantic tags used?
 
 
 PLATFORMS
@@ -136,7 +138,7 @@ OSX
   Safari
   FF
   Chrome
-iOS
+iOS - iPhone and iPad
   portrait
   landscape
 TV / XBOX
@@ -148,3 +150,4 @@ Are there any functions not being used?
 Are there appropriate comments?
 Is code DRY?
 Does code have correct indents? (Beautify)
+Are quotes consistent? (single versus double)
