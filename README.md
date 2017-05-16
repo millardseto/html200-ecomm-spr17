@@ -71,23 +71,39 @@ Each weekly assignment will be graded independently. There will not be a final g
 
 ## Testing
 [update this section with information about the testing steps you took to ensure site quality]
+
+CART
 Check cart when nothing added to cart.
 Check cart when many items added to cart.
 Check cart after removing items, or all items.
-Submit bad email address.
-Submit long email address.
-Submit short email address.
-Submit blank email address.
+Does cart badge number increase / decrease as user adds and removes items?
+Clear browser cache and open page.  Verify page works when no previous cart saved to local storage.
+After saving several items to cart, close and reopen browser.  Verify cart content.
+
+MENU
+When narrow screen does menu stack?  Do line separators appear?  Does cart move to top?  Are all page elements visible?
+When wider screen, does menu go back to inline?  Do separators disappear?  Does cart move to far right? Are all page elements visible?
+
+MAILING LIST
+Submit bad email address.  Expect validation error in UI.
+Submit long email address.  Does it affect layout?
+Submit short email address.  Does it affect layout?
+Submit blank email address.  Does validation message appear?
+After submitting valid email address, does confirmation message appear?  Does it dismiss itself?  Can user dismiss it?
+
+LAYOUT
 Slowly resize to narrow page.  Verify layout and styles (done by the media query).
 Slowly resize to full screen.  Observe change (or lack thereof).
 Hover over items.  Do hover styles appear?
 Change default font size, verify layout.
-Clear browser cache and open page.  Verify page works when no previous cart saved to local storage.
-After saving several items to cart, close and reopen browser.  Verify cart content.
-Check chrome developer tool during all tests to verify no hidden errors are occuring.
+
+PERFORMANCE
+Check chrome developer tool during all tests to verify no hidden errors are occurring.
 Check chrome developer tool for large load times.
 Check chrome developer tool for unusual data transfer sizes (very large pictures.)
+Check for console.logs that should be removed.
 
+PLATFORMS
 Do all tests on different platforms / browsers:
 Windows
   ie
@@ -101,3 +117,12 @@ OSX
 iOS
   portrait
   landscape
+TV / XBOX
+
+CODE
+Does it validate on W3C validator?
+Are there any extra CSS not being used?
+Are there any functions not being used?
+Are there appropriate comments?
+Is code DRY?
+Does code have correct indents? (Beautify)
