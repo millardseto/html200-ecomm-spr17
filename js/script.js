@@ -433,38 +433,38 @@ $(function() {
     },
     {
       'id': 9,
-      'name': 'Red Hat',
+      'name': 'Red Fedora',
       'price': 9.99,
-      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
-      'imageTitle': 'twill-200w.jpg',
-      'imageAlt': 'a red hat',
+      'description': "Fedoras have been a fashion staple for over 100 years. They are the soft felt hats. Timeless fedoras will be your nice complement in your life. The unisex style will be perfect for dance, plays, musicals and theatre performances. Brilliant for special occasions and formal affairs like derbies, weddings, and proms. One size fits most! This fedora hat is just for you!",
+      'imageTitle': 'redHat-200w.png',
+      'imageAlt': 'a red fedora hat',
       'type': 'h'
     },
     {
       'id': 10,
-      'name': 'White Hat',
+      'name': 'White Beanie',
       'price': 10.99,
-      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
-      'imageTitle': 'twill-200w.jpg',
-      'imageAlt': 'a white hat',
+      'description': "Backbone beanie ribbed knit. Flag logo. & keeps your head looking cool but feeling warm with 100% acrylic.",
+      'imageTitle': 'whiteHat-200w.jpg',
+      'imageAlt': 'a white beanie hat',
       'type': 'h'
     },
     {
       'id': 11,
-      'name': 'Snow Gloves',
+      'name': 'Carhartt WP',
       'price': 11.99,
-      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
-      'imageTitle': 'twill-200w.jpg',
-      'imageAlt': 'a white hat',
+      'description': "The Carhartt wp glove does a great job of kepping you warm and dry as it is waterproof and sweat wicking.",
+      'imageTitle': 'snowGlove-200w.jpg',
+      'imageAlt': 'snow gloves',
       'type': 'g'
     },
     {
       'id': 12,
       'name': 'Rain Gloves',
       'price': 12.99,
-      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
-      'imageTitle': 'twill-200w.jpg',
-      'imageAlt': 'a white hat',
+      'description': "Glacier Glove paddling glove is blind stitched and glued to be waterproof. Strap at the wrist helps keep water out and keep the user warm.",
+      'imageTitle': 'rainGlove-200w.jpg',
+      'imageAlt': 'rain gloves',
       'type': 'g'
     }
   ]
