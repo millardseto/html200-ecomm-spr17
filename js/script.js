@@ -285,7 +285,6 @@ $(function() {
     var prodPrice = $(this).find('.price').text();
     var prodDescription = $(this).find('.prodDescription').text();
     var prodURL = $(this).find('img').attr('src');
-    console.log(prodURL);
 
     // plug data to dialog
     var modalId = $('#modal-id');
