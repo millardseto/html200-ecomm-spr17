@@ -185,7 +185,9 @@ $(function() {
    * @param {type} prodType   type of product to show
    * @return {type}  undefined
    */
-  function loadProducts(prodType, title) {
+  function loadProducts(el) {
+    var prodType = el.getAttribute('data-type');
+    var title = el.text;
 
     if (!prodType) {
       prodType = 's'; // default to show scarves
@@ -473,7 +475,7 @@ $(function() {
   /*------------------ LOAD DATA -------------------*/
   // on load... must occur before event wireup.  Can't wireup events to controls
   // until they exist.
-  loadProducts('s');
+  //loadProducts('s');
   loadCartFromLocalStorage();
   refreshBadge();
 
@@ -482,17 +484,17 @@ $(function() {
   $('.fa-shopping-cart').on('click', buildCartDialog); // show whats in cart
   bindProductEvents();
   $('#detailAddToCart').on('click', detailToCart); // add-to-cart button in detail dialog
-  $('#menuHats').on('click', function(){
-    loadProducts('h', this.text);
-    bindProductEvents();
-  })
-  $('#menuGloves').on('click', function(){
-    loadProducts('g', this.text);
-    bindProductEvents();
-  })
-  $('#menuScarves').on('click', function(){
-    loadProducts('s', this.text);
-    bindProductEvents();
+
+  // use event delagation - event handler is on the menu container, not each menu item
+  $('#menu').on('click', function(e){
+    // respond only to clicks on listItem achor tags
+      if (e.target && e.target.matches("li a")) {
+        // load the products
+        loadProducts(e.target);
+
+        // add event handlers to those products
+        bindProductEvents();
+      }
   })
 
 });
