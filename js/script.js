@@ -182,10 +182,21 @@ $(function() {
 
   /**
    * loadProducts - read product data from json and use to build product panel.
-   *
+   * @param {type} prodType   type of product to show
    * @return {type}  undefined
    */
-  function loadProducts() {
+  function loadProducts(prodType, title) {
+
+    if (!prodType) {
+      prodType = 's'; // default to show scarves
+    }
+
+    // Set the title for product container
+    $("#main-title").text(title);
+
+    // remove all items in container
+    $('.product').remove();
+
     // find the item-container (where products live).
     var productContainer = document.getElementById('item-container');
 
@@ -199,6 +210,10 @@ $(function() {
     </div>
     */
     for (var i in products) {
+      // filter type of product
+      if (products[i].type != prodType) {
+        continue;
+      }
       // make div wrapper
       var prodPanel = document.createElement('div');
       prodPanel.setAttribute('class', 'panel panel-default product');
@@ -331,7 +346,15 @@ $(function() {
 
   }
 
-
+  /**
+   * bindProductEvents - bind events to product
+   *
+   * @return {type}  description
+   */
+  function bindProductEvents(){
+    $('.product').hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
+    $('.product').on('click', showDetails); // show product details
+  }
 
   /*------------------ DATA -------------------*/
 
@@ -407,6 +430,42 @@ $(function() {
       'imageTitle': 'twill-200w.jpg',
       'imageAlt': 'ashby twill scarf',
       'type': 's'
+    },
+    {
+      'id': 9,
+      'name': 'Red Hat',
+      'price': 9.99,
+      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
+      'imageTitle': 'twill-200w.jpg',
+      'imageAlt': 'a red hat',
+      'type': 'h'
+    },
+    {
+      'id': 10,
+      'name': 'White Hat',
+      'price': 10.99,
+      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
+      'imageTitle': 'twill-200w.jpg',
+      'imageAlt': 'a white hat',
+      'type': 'h'
+    },
+    {
+      'id': 11,
+      'name': 'Snow Gloves',
+      'price': 11.99,
+      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
+      'imageTitle': 'twill-200w.jpg',
+      'imageAlt': 'a white hat',
+      'type': 'g'
+    },
+    {
+      'id': 12,
+      'name': 'Rain Gloves',
+      'price': 12.99,
+      'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
+      'imageTitle': 'twill-200w.jpg',
+      'imageAlt': 'a white hat',
+      'type': 'g'
     }
   ]
 
@@ -415,14 +474,26 @@ $(function() {
   /*------------------ LOAD DATA -------------------*/
   // on load... must occur before event wireup.  Can't wireup events to controls
   // until they exist.
-  loadProducts();
+  loadProducts('s');
   loadCartFromLocalStorage();
   refreshBadge();
 
   /*------------------ EVENTS -------------------*/
   $('#mail-form').submit(subcribeToEmail);  // subscribe to mailing list
   $('.fa-shopping-cart').on('click', buildCartDialog); // show whats in cart
-  $('.product').hover(showAddToCartButton, hideAddToCartButton); // show add-to-cart button
-  $('.product').on('click', showDetails); // show product details
+  bindProductEvents();
   $('#detailAddToCart').on('click', detailToCart); // add-to-cart button in detail dialog
+  $('#menuHats').on('click', function(){
+    loadProducts('h', this.text);
+    bindProductEvents();
+  })
+  $('#menuGloves').on('click', function(){
+    loadProducts('g', this.text);
+    bindProductEvents();
+  })
+  $('#menuScarves').on('click', function(){
+    loadProducts('s', this.text);
+    bindProductEvents();
+  })
+
 });
