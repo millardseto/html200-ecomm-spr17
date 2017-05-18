@@ -471,14 +471,6 @@ $(function() {
   ]
 
 
-
-  /*------------------ LOAD DATA -------------------*/
-  // on load... must occur before event wireup.  Can't wireup events to controls
-  // until they exist.
-  //loadProducts('s');
-  loadCartFromLocalStorage();
-  refreshBadge();
-
   /*------------------ EVENTS -------------------*/
   $('#mail-form').submit(subcribeToEmail);  // subscribe to mailing list
   $('.fa-shopping-cart').on('click', buildCartDialog); // show whats in cart
@@ -496,5 +488,15 @@ $(function() {
         bindProductEvents();
       }
   })
+
+
+
+  /*------------------ LOAD DATA -------------------*/
+  // on load... must occur before event wireup.  Can't wireup events to controls
+  // until they exist.
+  //loadProducts('s');
+  loadCartFromLocalStorage();
+  refreshBadge();
+  $('#menuScarves').click();
 
 });
