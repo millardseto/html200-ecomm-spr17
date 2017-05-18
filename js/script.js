@@ -487,14 +487,10 @@ $(function() {
         // add event handlers to those products
         bindProductEvents();
       }
-  })
-
+  });
 
 
   /*------------------ LOAD DATA -------------------*/
-  // on load... must occur before event wireup.  Can't wireup events to controls
-  // until they exist.
-  //loadProducts('s');
   loadCartFromLocalStorage();
   refreshBadge();
   $('#menuScarves').click();
