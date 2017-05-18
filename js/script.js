@@ -258,6 +258,14 @@ $(function() {
       prodId.appendChild(prodIdText);
       prodPanelBody.appendChild(prodId);
 
+      // make star rating
+      for(var j=0; j < products[i].rating; j++) {
+        var star = document.createElement('span');
+        star.setAttribute('class', 'star');
+        star.innerHTML = '★';
+        prodPanelBody.appendChild(star);
+      }
+
       // make panel footer
       //var prodPanelFooter = document.createElement('div');
       //prodPanelFooter.setAttribute('class', 'panel-footer');
@@ -287,6 +295,7 @@ $(function() {
     var prodPrice = $(this).find('.price').text();
     var prodDescription = $(this).find('.prodDescription').text();
     var prodURL = $(this).find('img').attr('src');
+    var prodRating = $(this).find('.star').length;
 
     // plug data to dialog
     var modalId = $('#modal-id');
@@ -303,6 +312,15 @@ $(function() {
 
     var modalPrice = $('#modal-price');
     modalPrice.text(prodPrice);
+
+    var modalStars = $('#modal-rating');
+    modalStars.html(''); // clear out previous value
+    for(var j=0; j<prodRating; j++){
+      var star = document.createElement('span');
+      star.setAttribute('class', 'star');
+      star.innerHTML = '★';
+      modalStars.append(star);
+    }
 
     // show dialog
     $('#prodDetail').modal('show');
@@ -367,7 +385,8 @@ $(function() {
       'description': 'Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.',
       'imageTitle': 'reversible-plaid-200w.jpg',
       'imageAlt': 'reversible plaid scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 5
     },
     {
       'id': 2,
@@ -376,7 +395,8 @@ $(function() {
       'description': "Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported.",
       'imageTitle': 'wool-cable-200w.jpg',
       'imageAlt': 'wool cable knit scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 4
     },
     {
       'id': 3,
@@ -385,7 +405,8 @@ $(function() {
       'description': 'Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton.',
       'imageTitle': 'northern-lights-200w.jpg',
       'imageAlt': 'norther lights scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 3
     },
     {
       'id': 4,
@@ -394,7 +415,8 @@ $(function() {
       'description': 'A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic.',
       'imageTitle': 'ombre-infinity-200w.jpg',
       'imageAlt': 'ombre infinity scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 2
     },
     {
       'id': 5,
@@ -403,7 +425,8 @@ $(function() {
       'description': 'Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic.',
       'imageTitle': 'fringed-plaid-200w.jpeg',
       'imageAlt': 'fringed plaid scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 1
     },
     {
       'id': 6,
@@ -412,7 +435,8 @@ $(function() {
       'description': 'The Who What Wear Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent, so you can adjust to contrast or match your outfit; soft and lush, it’s your stylish standoff against cold AC and unexpected fall breezes. 100% acrylic',
       'imageTitle': 'multi-color-200w.jpeg',
       'imageAlt': 'multi color scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 2
     },
     {
       'id': 7,
@@ -421,7 +445,8 @@ $(function() {
       'description': 'Luxurious silk scarf with subtle paisley pattern. 100% silk',
       'imageTitle': 'etro-200w.png',
       'imageAlt': 'northern lights scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 3
     },
     {
       'id': 8,
@@ -430,7 +455,8 @@ $(function() {
       'description': "Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool",
       'imageTitle': 'twill-200w.jpg',
       'imageAlt': 'ashby twill scarf',
-      'type': 's'
+      'type': 's',
+      'rating': 4
     },
     {
       'id': 9,
@@ -439,7 +465,8 @@ $(function() {
       'description': "Fedoras have been a fashion staple for over 100 years. They are the soft felt hats. Timeless fedoras will be your nice complement in your life. The unisex style will be perfect for dance, plays, musicals and theatre performances. Brilliant for special occasions and formal affairs like derbies, weddings, and proms. One size fits most! This fedora hat is just for you!",
       'imageTitle': 'redHat-200w.png',
       'imageAlt': 'a red fedora hat',
-      'type': 'h'
+      'type': 'h',
+      'rating': 5
     },
     {
       'id': 10,
@@ -448,7 +475,8 @@ $(function() {
       'description': "Backbone beanie ribbed knit. Flag logo. & keeps your head looking cool but feeling warm with 100% acrylic.",
       'imageTitle': 'whiteHat-200w.jpg',
       'imageAlt': 'a white beanie hat',
-      'type': 'h'
+      'type': 'h',
+      'rating': 4
     },
     {
       'id': 11,
@@ -457,7 +485,8 @@ $(function() {
       'description': "The Carhartt wp glove does a great job of kepping you warm and dry as it is waterproof and sweat wicking.",
       'imageTitle': 'snowGlove-200w.jpg',
       'imageAlt': 'snow gloves',
-      'type': 'g'
+      'type': 'g',
+      'rating': 3
     },
     {
       'id': 12,
@@ -466,7 +495,8 @@ $(function() {
       'description': "Glacier Glove paddling glove is blind stitched and glued to be waterproof. Strap at the wrist helps keep water out and keep the user warm.",
       'imageTitle': 'rainGlove-200w.jpg',
       'imageAlt': 'rain gloves',
-      'type': 'g'
+      'type': 'g',
+      'rating': 2
     }
   ]
 

@@ -271,6 +271,7 @@ h3 {
 
 .price {
   float: left;
+  padding-right: .8rem;
 }
 
 
